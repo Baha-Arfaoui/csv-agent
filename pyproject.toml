@@ -1,5 +1,5 @@
 [project]
-name = "sql-agent"
+name = "csv-agent"
 version = "0.1.0"
 description = ""
 authors = [

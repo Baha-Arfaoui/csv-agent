@@ -19,7 +19,6 @@ df1 = pd.read_csv("data/pred-app-mef-dhup-treated.csv", sep=",", encoding="utf-8
 df2 = pd.read_csv("data/pred-app3-mef-dhup-treated.csv", sep=",", encoding="utf-8")
 df3 = pd.read_csv("data/pred-app12-mef-dhup-treated.csv", sep=",", encoding="utf-8")
 df4 = pd.read_csv("data/pred-mai-mef-dhup-treated.csv", sep=",", encoding="utf-8")
-df5 = pd.read_csv("data/aggreger_demographie_communes_treated.csv", sep=",", encoding="utf-8")
 
 if "id" not in st.session_state:
     st.session_state.id = uuid.uuid4()
@@ -73,7 +72,7 @@ def load_agent():
 
     agent = create_csv_agent(
         ChatOpenAI(temperature=0, model="gpt-4o"),
-        ["data/pred-app-mef-dhup-treated.csv","data/pred-app3-mef-dhup-treated.csv","data/pred-app12-mef-dhup-treated.csv","data/pred-mai-mef-dhup-treated.csv","data/aggreger_demographie_communes_treated.csv"],
+        ["data/pred-app-mef-dhup-treated.csv","data/pred-app3-mef-dhup-treated.csv","data/pred-app12-mef-dhup-treated.csv","data/pred-mai-mef-dhup-treated.csv"],
         encoding="latin1",
         verbose=True,
         prompt=template,
