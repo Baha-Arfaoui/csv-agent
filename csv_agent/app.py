@@ -99,13 +99,13 @@ with st.sidebar:
         """
         \n \n
         **Bienvenue !** \n
-        Cette interface de chat vous permet de poser des questions sur les dataframes fournis.
-        L'agent répondra en **markdown** et, si utile, inclura des visualisations interactives Plotly. \n\n
+        Cette interface de chat vous permet de poser des questions sur les dataframes fournis.\n\n
+     
         **Exemples :**
-        - Quels lives génèrent les meilleures performances selon les indicateurs (vues, spectateurs uniques, messages dans le chat) ?
-        - Quel est l'animateur qui rassemble le plus de spectateurs ?
-        - Quel jour génère les meilleures performances ?
-        - Quelle est la proportion de personnes qui regardent nos lives sur iOS ?
+        - Quel est le loyer prédit par mètre carré pour Monpezat ?
+        - Quelle est l'intervalle de prédiction inférieure pour Fontguenand ?
+        - Analysez la relation entre le nombre d'observations et la précision du modèle pour les communes de Hirtzfelden et Oberentzen. Quelle commune a une meilleure précision du modèle par rapport au nombre d'observations ?
+        - Comparez les valeurs ajustées du R-carré pour les communes de Dancevoir et Buncey. Quelle commune a un modèle plus fiable et de combien ?
         """
     )
     # Déplacer le bouton "Clear" à la fin du chat
@@ -164,7 +164,9 @@ if prompt := st.chat_input("Let's Chat !"):
         
         for chunk in streaming_response:
             full_response += chunk
+
             message_placeholder.markdown(full_response + "▌")
+            time.sleep(0.01)
 
         # full_response = query_engine.query(prompt)
 
